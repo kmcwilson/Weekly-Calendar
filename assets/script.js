@@ -1,37 +1,29 @@
 const currentDate= moment().format('dddd, MMMM DD, YYYY');
 $('#currentDay').text(currentDate);
-const timeofDay = parseInt(moment().format('H'));
-const hour = $('.hour');
+const timeofDay = moment().format('H');
+const hours = $('.hour');
 const saveEvent= $('.saveBtn');
 
-function currentTime(){
-    if (hour < timeofDay){ 
-        $('.hour').addClass('past');
+hours.each (function (i){
+  let time =  parseInt($(this).attr('id'));
+  console.log(time);
+    if (time < timeofDay){ 
+        $(this).next().addClass('past');
     }
-    if (hour === timeofDay){
-        $('.hour').addClass('present');
+    else if (time == timeofDay){
+        $(this).next().addClass('present');
 
     }else{
-        $('.hour').addClass('future');
+        $(this).next().addClass('future');
     }
-   }
-$('textarea').focus(function(){
-    $(this).css('background', 'white');
+    $(this).next().children().text(localStorage.getItem(`todo ${i}`)|| '');
+   });
 
+saveEvent.each (function(i){
+    $(this).on('click', function(){
+    let toDos=$(this).prev().children().val();
+    localStorage.setItem(`todo ${i}`, toDos);
+})
 });
-$('textarea').blur(function(){
-    $(this).css('background', 'lightgray');
-
-});
-
-function storedEvents(event){
-    let timeBlocks = $('.time-block');
-    let toDos=$('textarea').val();
-    timeBlocks.appendChild(toDos);
-};
-
-localStorage.setItem(storedEvents);
-localStorage.getItem(storedEvents);
 
 
-saveEvent.on('click', storedEvents);
