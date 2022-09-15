@@ -1,8 +1,7 @@
 const currentDate= moment().format('dddd, MMMM DD, YYYY');
 $('#currentDay').text(currentDate);
 const timeofDay = parseInt(moment().format('H'));
-const hour = parseInt($('.row').children('.hour'));
-const timeBlocks = $('.time-block');
+const hour = $('.hour');
 const saveEvent= $('.saveBtn');
 
 function currentTime(){
@@ -16,15 +15,23 @@ function currentTime(){
         $('.hour').addClass('future');
     }
    }
+$('textarea').focus(function(){
+    $(this).css('background', 'white');
+
+});
+$('textarea').blur(function(){
+    $(this).css('background', 'lightgray');
+
+});
 
 function storedEvents(event){
-    event.preventDefault();
+    let timeBlocks = $('.time-block');
     let toDos=$('textarea').val();
     timeBlocks.appendChild(toDos);
-    localStorage.setItem(storedEvents);
-    localStorage.getItem(storedEvents);
+};
 
-}
+localStorage.setItem(storedEvents);
+localStorage.getItem(storedEvents);
 
 
-saveEvent.on('click', storedEvents)
+saveEvent.on('click', storedEvents);
