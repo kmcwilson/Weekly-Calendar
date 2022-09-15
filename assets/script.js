@@ -1,7 +1,9 @@
 const currentDate= moment().format('dddd, MMMM DD, YYYY');
 $('#currentDay').text(currentDate);
-const timeofDay = moment().format('H');
-const hour = $('.row').children('.hour');
+const timeofDay = parseInt(moment().format('H'));
+const hour = parseInt($('.row').children('.hour'));
+const timeBlocks = $('.time-block');
+const saveEvent= $('.saveBtn');
 
 function currentTime(){
     if (hour < timeofDay){ 
@@ -14,3 +16,15 @@ function currentTime(){
         $('.hour').addClass('future');
     }
    }
+
+function storedEvents(event){
+    event.preventDefault();
+    let toDos=$('textarea').val();
+    timeBlocks.appendChild(toDos);
+    localStorage.setItem(storedEvents);
+    localStorage.getItem(storedEvents);
+
+}
+
+
+saveEvent.on('click', storedEvents)
