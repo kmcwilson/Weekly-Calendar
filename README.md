@@ -10,3 +10,5 @@ Once the user types in their appointment for the day and clicks save, this will 
 ![screenshot](assets\images\weekly-calendar.jpg)
 
 ## Link to live website
+
+[Link to live website](https://kmcwilson.github.io/challenge-5-weekly-calendar/)
