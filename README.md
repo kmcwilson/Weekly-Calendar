@@ -7,5 +7,6 @@ Once the user types in their appointment for the day and clicks save, this will 
 
 ## Screenshot
 
+![screenshot](assets\images\weekly-calendar.jpg)
 
 ## Link to live website
