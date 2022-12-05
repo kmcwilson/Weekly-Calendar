@@ -11,4 +11,4 @@ Once the user types in their appointment for the day and clicks save, this will 
 
 ## Link to live website
 
-[Link to live website](https://kmcwilson.github.io/challenge-5-weekly-calendar/)
+[Link to live website](https://kmcwilson.github.io/Weekly-Calendar/)
